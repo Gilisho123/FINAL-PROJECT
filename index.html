@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giltech Online Cyber</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>Giltech Online Cyber</h1>
+    <p>Your Trusted Partner for Fast and Reliable Online Services</p>
+    <button id="themeToggle">🌙 Dark Mode</button>
+    <form class="search-bar">
+      <input type="text" placeholder="Search services...">
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Layout -->
+  <main class="main-container">
+    <section class="content">
+      <h2>Welcome to Giltech Online Cyber</h2>
+      <p>We specialize in offering fast, secure, and affordable online services to individuals, businesses, and institutions.</p>
+
+      <!-- Animated Cards -->
+      <div class="card-container">
+        <div class="card service-card">
+          <h3>Government Services</h3>
+          <p>We assist with KRA services, eCitizen applications, NSSF, NHIF, and more.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Document Services</h3>
+          <p>Printing, scanning, and document processing made quick and easy.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Online Support</h3>
+          <p>Reliable guidance for all your online needs, from registrations to applications.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Cyber Assistance</h3>
+          <p>Secure internet access and cyber services for all your digital requirements.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Offline Support</h3>
+          <p>We are reachable on calls 24hrs for inquiries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sidebar with counter -->
+    <aside class="sidebar">
+      <h3>Why Choose Us?</h3>
+      <p>• Fast Turnaround<br>• Affordable Pricing<br>• Secure Transactions<br>• Friendly Customer Service</p>
+
+      <section class="cyber-counter">
+        <h2>Cyber Service Counter</h2>
+        <p id="counterMessage">No customers served yet.</p>
+        <button id="serveBtn">Serve Customer</button>
+        <p>Total Customers Served: <span id="customerCount">0</span></p>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial fade-in">
+      <p>"Giltech Online Cyber provided excellent service and support!"</p>
+      <cite>- Priscah O.</cite>
+    </div>
+    <div class="testimonial fade-in">
+      <p>"I highly recommend their services for anyone in need of online assistance."</p>
+      <cite>- Celestine G.</cite>
+    </div>
+  </section>
+
+  <!-- Signup & FAQ -->
+  <section class="signup-faq">
+    <div class="signup-box">
+      <h2>Create an Account</h2>
+      <form id="signupForm">
+        <label for="signupName">Full Name:</label>
+        <input type="text" id="signupName" placeholder="Enter your full name">
+        <small class="error" id="nameError"></small>
+
+        <label for="signupEmail">Email:</label>
+        <input type="text" id="signupEmail" placeholder="Enter your email">
+        <small class="error" id="emailError"></small>
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" placeholder="Enter a password">
+        <small class="error" id="passwordError"></small>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password">
+        <small class="error" id="confirmPasswordError"></small>
+
+        <button type="submit">Create Account</button>
+        <p id="formSuccess" class="success"></p>
+      </form>
+    </div>
+
+    <div class="faq-box">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>What services do you offer?</h4>
+        <p>We provide KRA, eCitizen, NHIF, NSSF, printing, scanning, and more.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How secure are your transactions?</h4>
+        <p>All transactions are handled securely with customer confidentiality guaranteed.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Where are you located?</h4>
+        <p>We are based in Nakuru, Kenya.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm" class="contact-form">
+      <input type="text" id="contactName" placeholder="Your Name">
+      <small class="error" id="contactNameError"></small>
+
+      <input type="email" id="contactEmail" placeholder="Your Email">
+      <small class="error" id="contactEmailError"></small>
+
+      <textarea id="contactMessage" placeholder="Your Message"></textarea>
+      <small class="error" id="contactMessageError"></small>
+
+      <button type="submit">Send Message</button>
+      <p id="contactSuccess" class="success"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Follow us on social media for the latest updates!</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-x"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+    <p>&copy; 2024 Giltech Online Cyber. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
