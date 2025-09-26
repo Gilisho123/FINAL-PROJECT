@@ -1,0 +1,122 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+.header-left h1 {
+  margin-bottom: 5px;
+}
+
+.logo img {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Navbar */
+.navbar {
+  background: #444;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  background: #ff9800;
+  border-radius: 5px;
+}
+
+/* Services section */
+.services {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.services h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #222;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Unique service colors */
+.service-1 { border-top: 5px solid #e91e63; }
+.service-2 { border-top: 5px solid #2196f3; }
+.service-3 { border-top: 5px solid #4caf50; }
+.service-4 { border-top: 5px solid #ff9800; }
+.service-5 { border-top: 5px solid #9c27b0; }
+.service-6 { border-top: 5px solid #3f51b5; }
+.service-7 { border-top: 5px solid #009688; }
+.service-8 { border-top: 5px solid #795548; }
+.service-9 { border-top: 5px solid #00bcd4; }
+.service-10 { border-top: 5px solid #607d8b; }
+.service-11 { border-top: 5px solid #673ab7; }
+.service-12 { border-top: 5px solid #8bc34a; }
+.service-13 { border-top: 5px solid #f44336; }
+.service-14 { border-top: 5px solid #ffc107; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  margin-top: 30px;
+}
