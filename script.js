@@ -25,61 +25,76 @@ if (contactForm) {
 }
 
 /* =========================
-   SIGNUP FORM
+   ABOUT US - VIEW MORE
 ========================= */
-const signupForm = document.querySelector(".signup-form");
+const viewMoreBtn = document.getElementById("viewMoreBtn");
+if (viewMoreBtn) {
+  viewMoreBtn.addEventListener("click", () => {
+    const paragraphs = document.querySelectorAll(".about-content p");
+    paragraphs.forEach(p => (p.style.display = "block"));
+    viewMoreBtn.style.display = "none";
+  });
+}
+
+/* =========================
+   SIGNUP + LOGIN (TABS)
+========================= */
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+if (tabBtns.length > 0) {
+  tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabBtns.forEach(b => b.classList.remove("active"));
+      tabContents.forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+}
+
+/* SIGNUP */
+const signupForm = document.getElementById("signupForm");
 if (signupForm) {
   signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    const name = document.getElementById("signupName").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
 
-    const name = signupForm.querySelector("input[placeholder='Full Name']").value;
-    const email = signupForm.querySelector("input[type='email']").value;
-    const password = signupForm.querySelectorAll("input[type='password']")[0].value;
-    const confirmPassword = signupForm.querySelectorAll("input[type='password']")[1].value;
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    // Save user to localStorage
     localStorage.setItem("giltechUser", JSON.stringify({ name, email, password }));
 
-    alert("Registration successful! You can now log in.");
-    window.location.href = "login.html";
+    alert("Registration successful! Please log in.");
+    document.querySelector("[data-tab='login']").click();
   });
 }
 
-/* =========================
-   LOGIN FORM
-========================= */
-const loginForm = document.querySelector(".login-form");
+/* LOGIN */
+const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    const user = JSON.parse(localStorage.getItem("giltechUser"));
 
-    const email = loginForm.querySelector("input[type='email']").value;
-    const password = loginForm.querySelector("input[type='password']").value;
-
-    const storedUser = JSON.parse(localStorage.getItem("giltechUser"));
-
-    if (storedUser && storedUser.email === email && storedUser.password === password) {
+    if (user && user.email === email && user.password === password) {
       localStorage.setItem("giltechLoggedIn", "true");
-      alert("Login successful! Welcome " + storedUser.name);
+      localStorage.setItem("giltechLoggedInUser", user.name);
+      alert("Login successful! Welcome " + user.name);
       window.location.href = "elearning.html";
     } else {
-      alert("Invalid email or password.");
+      alert("Invalid credentials!");
     }
   });
 }
 
-/* =========================
-   LOGOUT FUNCTION
-========================= */
+/* LOGOUT */
 const logoutBtn = document.querySelector("#logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("giltechLoggedIn");
+    localStorage.removeItem("giltechLoggedInUser");
     alert("You have been logged out.");
     window.location.href = "login.html";
   });
@@ -118,6 +133,8 @@ function renderCourses() {
 
   courses.forEach(course => {
     const li = document.createElement("li");
+    li.className = "course";
+    if (course.completed) li.classList.add("completed");
     li.textContent = course.title;
 
     const btn = document.createElement("button");
@@ -140,54 +157,23 @@ function toggleCourse(id) {
   }
 }
 
+/* Stylish Certificate */
 function checkCertificate() {
-  const certSection = document.getElementById("certificateSection");
+  const certSection = document.getElementById("certificate");
   const allCompleted = courses.every(c => c.completed);
 
   if (certSection) {
     if (allCompleted) {
-      const user = JSON.parse(localStorage.getItem("giltechUser"));
-      certSection.innerHTML = `
-        <h3>🎉 Congratulations!</h3>
-        <p>${user ? user.name : "Student"}, you have completed all courses.</p>
-        <button onclick="generateCertificate()">Download Certificate</button>
-      `;
+      const userName = localStorage.getItem("giltechLoggedInUser") || "Student";
+      certSection.style.display = "block";
+      document.getElementById("studentName").innerText = userName;
+      document.getElementById("issueDate").innerText = new Date().toLocaleDateString();
+      document.getElementById("print-btn").style.display = "inline-block";
     } else {
-      certSection.innerHTML = "";
+      certSection.style.display = "none";
     }
   }
 }
 
-function generateCertificate() {
-  const user = JSON.parse(localStorage.getItem("giltechUser"));
-  const username = user ? user.name : "Student";
-
-  const certWindow = window.open("", "_blank");
-  certWindow.document.write(`
-    <html>
-      <head>
-        <title>Certificate</title>
-        <style>
-          body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-          .certificate { border: 5px solid #4a90e2; padding: 30px; }
-          h1 { color: #4a90e2; }
-        </style>
-      </head>
-      <body>
-        <div class="certificate">
-          <h1>Certificate of Completion</h1>
-          <p>This certifies that</p>
-          <h2>${username}</h2>
-          <p>has successfully completed all courses in the Giltech E-learning System.</p>
-          <p><em>Giltech Online Cyber</em></p>
-        </div>
-      </body>
-    </html>
-  `);
-  certWindow.document.close();
-}
-
 /* Initialize courses if on E-learning page */
-if (document.getElementById("courseList")) {
-  renderCourses();
-}
+if (document.getElementB
