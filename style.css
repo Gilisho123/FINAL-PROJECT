@@ -372,3 +372,26 @@ ul {
 #certificateSection button:hover {
   background: #357ab7;
 }
+/* small devices (phone, under 768px) */
+@media (max-width: 768px) {
+  .contact-container,
+  .signup-container,
+  .login-container,
+  .testimonial-container,
+  .elearning-container {
+    padding: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .signup-form input,
+  .login-form input {
+    font-size: 0.9rem;
+  }
+
+  .contact-form button,
+  .signup-form button,
+  .login-form button {
+    padding: 10px;
+  }
+
