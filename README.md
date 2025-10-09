@@ -58,26 +58,4 @@ It provides information about services such as printing, scanning, online regist
 ## 📂 Project Structure  
 
 giltech-online-cyber/
-│
-├── index.html
-├── services.html
-├── about.html
-├── testimonials.html
-├── contact.html
-├── signup.html
-│
-├── style.css # Home page styles
-├── services.css # Services page styles
-├── about.css # About page styles
-├── testimonials.css # Testimonials page styles
-├── contact.css # Contact page styles
-├── signup.css # Sign-up page styles
-│
-├── script.js # Home page scripts
-├── services.js # Services page scripts
-├── about.js # About page scripts
-├── testimonials.js # Testimonials page scripts
-├── contact.js # Contact page scripts
-├── signup.js # Sign-up page scripts
-│
-└── logo.jpeg # Project logo
+
